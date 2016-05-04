@@ -1,0 +1,37 @@
+<!--
+<Robot name="Baxter" file="/home/baxter/baxter_ws/src/grasp_selection/openrave/baxter_structure_mount1.dae">
+-->
+<robot>   
+<Robot name="Baxter" file="/home/edessale/ros_ws/src/openrave/python/baxterXMLs/baxter_urdf.dae">  
+</Robot>  
+  <Manipulator name="left_arm">
+    <base>left_arm_mount</base>
+    <effector>left_hand</effector>
+  </Manipulator>    
+  <Manipulator name="right_arm">
+    <base>right_arm_mount</base>
+    <effector>right_gripper</effector>
+  </Manipulator>   
+
+
+
+<kinbody>
+<body name = "handFunnel">
+<offsetfrom>right_gripper</offsetfrom>
+<Translation>0 0 0.04</Translation>
+<Geom type="box">
+<extents>0.0 0.0 0.0</extents>
+<Translation>0 0 0 </Translation>
+</Geom>
+</body>
+
+<joint name = "dummy" type="hinge" enable="false">
+       <body>right_gripper</body>
+       <body>handFunnel</body>
+       <limitsdeg>0 0</limitsdeg>
+     </joint>
+
+</kinbody>
+
+
+</robot>
